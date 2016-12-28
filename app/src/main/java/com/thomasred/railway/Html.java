@@ -4,22 +4,22 @@ package com.thomasred.railway;
  */
 
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.htmlcleaner.HtmlCleaner;
-import org.htmlcleaner.TagNode;
-import org.htmlcleaner.XPatherException;
-
 import android.app.ListActivity;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.widget.Toast;
+
+import org.htmlcleaner.HtmlCleaner;
+import org.htmlcleaner.TagNode;
+import org.htmlcleaner.XPatherException;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 //import android.widget.SimpleAdapter;
 
@@ -53,20 +53,24 @@ public class Html extends ListActivity {
 
         // 把 html 資料加入ArrayList中
         mdata = getHtmlContent();
+        if(mdata.size()==0){
+            Toast.makeText(Html.this,
+                    "沒有任何車次，幫QQ", Toast.LENGTH_LONG).show();
+        }else {
 
+            // 新增SimpleAdapter
+            adapter = new MyAdapter(this, date, mdata, R.layout.style,
+                    new String[]{"train", "id", "fromtime", "totime",
+                            "totaltime", "cost", "comment"},
+                    new int[]{R.id.train, R.id.id, R.id.fromtime, R.id.totime,
+                            R.id.totaltime, R.id.cost, R.id.comment});
 
-        // 新增SimpleAdapter
-        adapter = new MyAdapter( this, date, mdata, R.layout.style,
-                new String[] { "train", "id", "fromtime", "totime",
-                        "totaltime", "cost", "comment"},
-                new int[] { R.id.train, R.id.id, R.id.fromtime, R.id.totime,
-                        R.id.totaltime, R.id.cost, R.id.comment} );
+            //ListActivity設定adapter
+            setListAdapter(adapter);
 
-        //ListActivity設定adapter
-        setListAdapter(adapter);
-
-        //啟用按鍵過濾功能，這兩行資料都會進行過濾
-        getListView().setTextFilterEnabled(true);
+            //啟用按鍵過濾功能，這兩行資料都會進行過濾
+            getListView().setTextFilterEnabled(true);
+        }
 
     }
 

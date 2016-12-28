@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:textColor="#AAEEEE"
-            android:text="時間"/>
+            android:text="出發時間"/>
     </TableRow>
 
 
