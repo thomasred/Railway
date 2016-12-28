@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Railway</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="area_name">
+        <item>臺北地區</item>
+        <item>桃園地區</item>
+        <item>新竹地區</item>
+        <item>苗栗地區</item>
+        <item>臺中地區</item>
+        <item>彰化地區</item>
+        <item>南投地區</item>
+        <item>雲林地區</item>
+        <item>嘉義地區</item>
+        <item>臺南地區</item>
+        <item>高雄地區</item>
+        <item>屏東地區</item>
+        <item>臺東地區</item>
+        <item>花蓮地區</item>
+        <item>宜蘭地區</item>
+        <item>平溪/深澳線</item>
+        <item>內灣/六家線</item>
+        <item>集集線</item>
+        <item>沙崙線</item>
+    </string-array>
+
+    <string-array name="taipei_area">
+        <item>福隆</item>
+        <item>貢寮</item>
+        <item>雙溪</item>
+        <item>牡丹</item>
+        <item>三貂嶺</item>
+        <item>候硐</item>
+        <item>瑞芳</item>
+        <item>四腳亭</item>
+        <item>暖暖</item>
+        <item>基隆</item>
+        <item>三坑</item>
+        <item>八堵</item>
+        <item>七堵</item>
+        <item>百福</item>
+        <item>五堵</item>
+        <item>汐止</item>
+        <item>南港</item>
+        <item>松山</item>
+        <item>臺北</item>
+        <item>萬華</item>
+        <item>板橋</item>
+        <item>浮洲</item>
+        <item>樹林</item>
+        <item>山佳</item>
+        <item>鶯歌</item>
+    </string-array>
+    <string-array name="taipei_area_code">
+        <item>1810</item>
+        <item>1809</item>
+        <item>1808</item>
+        <item>1807</item>
+        <item>1806</item>
+        <item>1805</item>
+        <item>1804</item>
+        <item>1803</item>
+        <item>1802</item>
+        <item>1001</item>
+        <item>1029</item>
+        <item>1002</item>
+        <item>1003</item>
+        <item>1030</item>
+        <item>1004</item>
+        <item>1005</item>
+        <item>1006</item>
+        <item>1007</item>
+        <item>1008</item>
+        <item>1009</item>
+        <item>1011</item>
+        <item>1032</item>
+        <item>1012</item>
+        <item>1013</item>
+        <item>1014</item>
+    </string-array>
+
+    <string-array name="taoyuan_area">
+        <item>桃園</item>
+        <item>內壢</item>
+        <item>中壢</item>
+        <item>埔心</item>
+        <item>楊梅</item>
+        <item>富岡</item>
+    </string-array>
+    <string-array name="taoyuan_area_code">
+        <item>1015</item>
+        <item>1016</item>
+        <item>1017</item>
+        <item>1018</item>
+        <item>1019</item>
+        <item>1020</item>
+    </string-array>
+
+    <string-array name="hsinchu_area">
+        <item>湖口</item>
+        <item>新豐</item>
+        <item>竹北</item>
+        <item>北新竹</item>
+        <item>新竹</item>
+        <item>香山</item>
+        <item>北湖</item>
+    </string-array>
+    <string-array name="hsinchu_area_code">
+        <item>1021</item>
+        <item>1022</item>
+        <item>1023</item>
+        <item>1024</item>
+        <item>1025</item>
+        <item>1026</item>
+        <item>1033</item>
+    </string-array>
+
+    <string-array name="miaoli_area">
+        <item>崎頂</item>
+        <item>竹南</item>
+        <item>談文</item>
+        <item>大山</item>
+        <item>後龍</item>
+        <item>龍港</item>
+        <item>白沙屯</item>
+        <item>新埔</item>
+        <item>通宵</item>
+        <item>苑裡</item>
+        <item>造橋</item>
+        <item>豐富</item>
+        <item>苗栗</item>
+        <item>南勢</item>
+        <item>銅鑼</item>
+        <item>三義</item>
+    </string-array>
+    <string-array name="miaoli_area_code">
+        <item>1027</item>
+        <item>1028</item>
+        <item>1102</item>
+        <item>1104</item>
+        <item>1105</item>
+        <item>1106</item>
+        <item>1107</item>
+        <item>1108</item>
+        <item>1109</item>
+        <item>1110</item>
+        <item>1302</item>
+        <item>1304</item>
+        <item>1305</item>
+        <item>1307</item>
+        <item>1308</item>
+        <item>1310</item>
+    </string-array>
+
+    <string-array name="taichung_area">
+        <item>日南</item>
+        <item>大甲</item>
+        <item>台中港</item>
+        <item>清水</item>
+        <item>沙鹿</item>
+        <item>龍井</item>
+        <item>大肚</item>
+        <item>追分</item>
+        <item>泰安</item>
+        <item>後裡</item>
+        <item>豐原</item>
+        <item>潭子</item>
+        <item>太原</item>
+        <item>臺中</item>
+        <item>大慶</item>
+        <item>烏日</item>
+        <item>新烏日</item>
+        <item>成功</item>
+    </string-array>
+    <string-array name="taichung_area_code">
+        <item>1111</item>
+        <item>1112</item>
+        <item>1113</item>
+        <item>1114</item>
+        <item>1115</item>
+        <item>1116</item>
+        <item>1117</item>
+        <item>1118</item>
+        <item>1314</item>
+        <item>1315</item>
+        <item>1317</item>
+        <item>1318</item>
+        <item>1323</item>
+        <item>1319</item>
+        <item>1322</item>
+        <item>1320</item>
+        <item>1324</item>
+        <item>1321</item>
+    </string-array>
+
+    <string-array name="changhua_area">
+        <item>彰化</item>
+        <item>花壇</item>
+        <item>大村</item>
+        <item>員林</item>
+        <item>永靖</item>
+        <item>社頭</item>
+        <item>田中</item>
+        <item>二水</item>
+    </string-array>
+    <string-array name="changhua_area_code">
+        <item>1120</item>
+        <item>1202</item>
+        <item>1240</item>
+        <item>1203</item>
+        <item>1204</item>
+        <item>1205</item>
+        <item>1206</item>
+        <item>1207</item>
+    </string-array>
+
+    <string-array name="nantou_area">
+        <item>源泉</item>
+        <item>濁水</item>
+        <item>龍泉</item>
+        <item>集集</item>
+        <item>水裡</item>
+        <item>車埕</item>
+    </string-array>
+    <string-array name="nantou_area_code">
+        <item>2702</item>
+        <item>2703</item>
+        <item>2704</item>
+        <item>2705</item>
+        <item>2706</item>
+        <item>2707</item>
+    </string-array>
+
+    <string-array name="yunlin_area">
+        <item>林內</item>
+        <item>石榴</item>
+        <item>斗六</item>
+        <item>斗南</item>
+        <item>石龜</item>
+    </string-array>
+    <string-array name="yunlin_area_code">
+        <item>1208</item>
+        <item>1209</item>
+        <item>1210</item>
+        <item>1211</item>
+        <item>1212</item>
+    </string-array>
+
+    <string-array name="chiayi_area">
+        <item>大林</item>
+        <item>民雄</item>
+        <item>嘉北</item>
+        <item>嘉義</item>
+        <item>水上</item>
+        <item>南靖</item>
+    </string-array>
+    <string-array name="chiayi_area_code">
+        <item>1213</item>
+        <item>1214</item>
+        <item>1241</item>
+        <item>1215</item>
+        <item>1217</item>
+        <item>1218</item>
+    </string-array>
+
+    <string-array name="tainan_area">
+        <item>後壁</item>
+        <item>新營</item>
+        <item>柳營</item>
+        <item>林鳳營</item>
+        <item>隆田</item>
+        <item>拔林</item>
+        <item>善化</item>
+        <item>南科</item>
+        <item>新市</item>
+        <item>永康</item>
+        <item>大橋</item>
+        <item>臺南</item>
+        <item>保安</item>
+        <item>仁德</item>
+        <item>中洲</item>
+        <item>長榮大學</item>
+        <item>沙崙</item>
+    </string-array>
+    <string-array name="tainan_area_code">
+        <item>1219</item>
+        <item>1220</item>
+        <item>1221</item>
+        <item>1222</item>
+        <item>1223</item>
+        <item>1224</item>
+        <item>1225</item>
+        <item>1244</item>
+        <item>1226</item>
+        <item>1227</item>
+        <item>1239</item>
+        <item>1228</item>
+        <item>1229</item>
+        <item>1243</item>
+        <item>1230</item>
+        <item>5101</item>
+        <item>5102</item>
+    </string-array>
+
+    <string-array name="kaohsiung_area">
+        <item>大湖</item>
+        <item>路竹</item>
+        <item>岡山</item>
+        <item>橋頭</item>
+        <item>楠梓</item>
+        <item>新左營</item>
+        <item>左營</item>
+        <item>高雄</item>
+        <item>鳳山</item>
+        <item>後莊</item>
+        <item>九曲堂</item>
+    </string-array>
+    <string-array name="kaohsiung_area_code">
+        <item>1231</item>
+        <item>1232</item>
+        <item>1233</item>
+        <item>1234</item>
+        <item>1235</item>
+        <item>1242</item>
+        <item>1236</item>
+        <item>1238</item>
+        <item>1402</item>
+        <item>1403</item>
+        <item>1404</item>
+    </string-array>
+
+    <string-array name="pingtung_area">
+        <item>六塊厝</item>
+        <item>屏東</item>
+        <item>歸來</item>
+        <item>麟洛</item>
+        <item>西勢</item>
+        <item>竹田</item>
+        <item>潮州</item>
+        <item>崁頂</item>
+        <item>南州</item>
+        <item>鎮安</item>
+        <item>林邊</item>
+        <item>佳冬</item>
+        <item>東海</item>
+        <item>枋寮</item>
+        <item>加祿</item>
+        <item>內獅</item>
+        <item>枋山</item>
+    </string-array>
+    <string-array name="pingtung_area_code">
+        <item>1405</item>
+        <item>1406</item>
+        <item>1407</item>
+        <item>1408</item>
+        <item>1409</item>
+        <item>1410</item>
+        <item>1411</item>
+        <item>1412</item>
+        <item>1413</item>
+        <item>1414</item>
+        <item>1415</item>
+        <item>1416</item>
+        <item>1417</item>
+        <item>1418</item>
+        <item>1502</item>
+        <item>1503</item>
+        <item>1504</item>
+    </string-array>
+
+    <string-array name="taitung_area">
+        <item>古莊</item>
+        <item>大武</item>
+        <item>瀧溪</item>
+        <item>金崙</item>
+        <item>太麻裡</item>
+        <item>知本</item>
+        <item>康樂</item>
+        <item>臺東</item>
+        <item>山裡</item>
+        <item>鹿野</item>
+        <item>瑞源</item>
+        <item>瑞和</item>
+        <item>關山</item>
+        <item>海端</item>
+        <item>池上</item>
+    </string-array>
+    <string-array name="taitung_area_code">
+        <item>1507</item>
+        <item>1508</item>
+        <item>1510</item>
+        <item>1512</item>
+        <item>1514</item>
+        <item>1516</item>
+        <item>1517</item>
+        <item>1632</item>
+        <item>1631</item>
+        <item>1630</item>
+        <item>1629</item>
+        <item>1628</item>
+        <item>1626</item>
+        <item>1625</item>
+        <item>1624</item>
+    </string-array>
+
+    <string-array name="hualien_area">
+        <item>富裡</item>
+        <item>東竹</item>
+        <item>東里</item>
+        <item>玉裡</item>
+        <item>三民</item>
+        <item>瑞穗</item>
+        <item>富源</item>
+        <item>大富</item>
+        <item>光復</item>
+        <item>萬榮</item>
+        <item>鳳林</item>
+        <item>南平</item>
+        <item>豐田</item>
+        <item>壽豐</item>
+        <item>平和</item>
+        <item>志學</item>
+        <item>吉安</item>
+        <item>花蓮</item>
+        <item>北埔</item>
+        <item>景美</item>
+        <item>新城</item>
+        <item>崇德</item>
+        <item>和仁</item>
+        <item>和平</item>
+    </string-array>
+    <string-array name="hualien_area_code">
+        <item>1623</item>
+        <item>1622</item>
+        <item>1621</item>
+        <item>1619</item>
+        <item>1617</item>
+        <item>1616</item>
+        <item>1614</item>
+        <item>1613</item>
+        <item>1612</item>
+        <item>1611</item>
+        <item>1610</item>
+        <item>1609</item>
+        <item>1607</item>
+        <item>1606</item>
+        <item>1605</item>
+        <item>1604</item>
+        <item>1602</item>
+        <item>1715</item>
+        <item>1714</item>
+        <item>1713</item>
+        <item>1712</item>
+        <item>1711</item>
+        <item>1710</item>
+        <item>1709</item>
+    </string-array>
+
+    <string-array name="ilan_area">
+        <item>漢本</item>
+        <item>武塔</item>
+        <item>南澳</item>
+        <item>東澳</item>
+        <item>永樂</item>
+        <item>蘇澳</item>
+        <item>蘇澳新</item>
+        <item>新馬</item>
+        <item>冬山</item>
+        <item>羅東</item>
+        <item>中裡</item>
+        <item>二結</item>
+        <item>宜蘭</item>
+        <item>四城</item>
+        <item>礁溪</item>
+        <item>頂埔</item>
+        <item>頭城</item>
+        <item>外澳</item>
+        <item>龜山</item>
+        <item>大溪</item>
+        <item>大裡</item>
+        <item>石城</item>
+    </string-array>
+    <string-array name="ilan_area_code">
+        <item>1708</item>
+        <item>1706</item>
+        <item>1705</item>
+        <item>1704</item>
+        <item>1703</item>
+        <item>1827</item>
+        <item>1826</item>
+        <item>1825</item>
+        <item>1824</item>
+        <item>1823</item>
+        <item>1822</item>
+        <item>1821</item>
+        <item>1820</item>
+        <item>1819</item>
+        <item>1818</item>
+        <item>1817</item>
+        <item>1816</item>
+        <item>1815</item>
+        <item>1814</item>
+        <item>1813</item>
+        <item>1821</item>
+        <item>1811</item>
+    </string-array>
+
+    <string-array name="pinghsi_shenao_area">
+        <item>菁桐</item>
+        <item>平溪</item>
+        <item>嶺腳</item>
+        <item>望古</item>
+        <item>十分</item>
+        <item>大華</item>
+        <item>三貂嶺</item>
+        <item>海科館</item>
+    </string-array>
+    <string-array name="pinghsi_shenao_area_code">
+        <item>1908</item>
+        <item>1907</item>
+        <item>1906</item>
+        <item>1905</item>
+        <item>1904</item>
+        <item>1903</item>
+        <item>1806</item>
+        <item>6103</item>
+    </string-array>
+
+    <string-array name="neiwan_liujia_area">
+        <item>新竹</item>
+        <item>北新竹</item>
+        <item>千甲</item>
+        <item>新莊</item>
+        <item>竹中</item>
+        <item>六家</item>
+        <item>上員</item>
+        <item>榮華</item>
+        <item>竹東</item>
+        <item>橫山</item>
+        <item>九讚頭</item>
+        <item>合興</item>
+        <item>富貴</item>
+        <item>內灣</item>
+    </string-array>
+    <string-array name="neiwan_liujia_area_code">
+        <item>1025</item>
+        <item>1024</item>
+        <item>2212</item>
+        <item>2213</item>
+        <item>2203</item>
+        <item>2214</item>
+        <item>2204</item>
+        <item>2211</item>
+        <item>2205</item>
+        <item>2206</item>
+        <item>2207</item>
+        <item>2208</item>
+        <item>2209</item>
+        <item>2210</item>
+    </string-array>
+
+    <string-array name="jiji_area">
+        <item>二水</item>
+        <item>源泉</item>
+        <item>濁水</item>
+        <item>龍泉</item>
+        <item>集集</item>
+        <item>水裡</item>
+        <item>車埕</item>
+    </string-array>
+    <string-array name="jiji_area_code">
+        <item>1207</item>
+        <item>2702</item>
+        <item>2703</item>
+        <item>2704</item>
+        <item>2705</item>
+        <item>2706</item>
+        <item>2707</item>
+    </string-array>
+
+    <string-array name="shalun_area">
+        <item>長榮大學</item>
+        <item>沙崙</item>
+    </string-array>
+    <string-array name="shalun_area_code">
+        <item>5101</item>
+        <item>5102</item>
+    </string-array>
+
+</resources>

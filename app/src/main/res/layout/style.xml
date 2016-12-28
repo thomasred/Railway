@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dip"
+    android:stretchColumns="*">
+    <TableRow>
+        <TextView
+            android:id="@+id/id"
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="104" />
+
+        <TextView
+            android:id="@+id/train"
+            android:layout_span="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="自強" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/fromtime"
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="07:50" />
+
+        <TextView
+            android:id="@+id/totime"
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="08:36" />
+        <TextView
+            android:id="@+id/totaltime"
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="46分" />
+        <TextView
+            android:id="@+id/cost"
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="$85" />
+    </TableRow>
+    <TextView
+        android:id="@+id/comment"
+        android:layout_span="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="周一行駛" />
+
+</TableLayout>

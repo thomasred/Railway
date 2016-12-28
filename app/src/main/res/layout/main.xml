@@ -1,0 +1,203 @@
+<TableLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:background="@drawable/back"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dip"
+    android:stretchColumns="*"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <TextView
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#AAEEEE"
+            android:text="出發站" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:contentDescription="@string/app_name"
+            android:layout_toRightOf="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/location" />
+
+    </RelativeLayout>
+
+    <TableRow>
+        <Spinner
+            android:id="@+id/s_area"
+            android:layout_span="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/s_station"
+            android:layout_span="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <TextView
+            android:id="@+id/end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:textColor="#AAEEEE"
+            android:text="到達站" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:contentDescription="@string/app_name"
+            android:layout_toRightOf="@+id/end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/location" />
+    </RelativeLayout>
+
+    <TableRow>
+        <Spinner
+            android:id="@+id/e_area"
+            android:layout_span="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/e_station"
+            android:layout_span="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <TextView
+            android:id="@+id/kind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#AAEEEE"
+            android:text="車種"/>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:contentDescription="@string/app_name"
+            android:layout_toRightOf="@+id/kind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/train" />
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/RG"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton android:id="@+id/rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="所有"
+            android:checked="true" />
+
+        <RadioButton android:id="@+id/rb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="對號列車" />
+
+        <RadioButton android:id="@+id/rb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="非對號列車" />
+
+    </RadioGroup>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/time"
+            android:layout_span="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#AAEEEE"
+            android:text="時間"/>
+    </TableRow>
+
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/imageView1"
+            android:contentDescription="@string/app_name"
+            android:layout_span="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/calendar" />
+
+        <Button
+            android:id="@+id/date"
+            android:layout_span="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="請選擇日期" />
+    </TableRow>
+
+
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:contentDescription="@string/app_name"
+            android:layout_span="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/clock" />
+        <Button
+            android:id="@+id/time1"
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="00:00" />
+
+        <TextView
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="到"/>
+
+        <Button
+            android:id="@+id/time2"
+            android:layout_span="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="23:59" />
+    </TableRow>
+
+
+    <TableRow
+        android:gravity="center_horizontal">
+        <ImageButton
+            android:id="@+id/send"
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/find"/>
+    </TableRow>
+
+</TableLayout>
