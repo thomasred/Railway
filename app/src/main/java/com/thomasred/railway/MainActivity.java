@@ -1,37 +1,37 @@
 package com.thomasred.railway;
 
 
-import java.util.Calendar;
-
-
-import android.os.Bundle;
-import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.TimePicker;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 
-public class MainActivity extends Activity
+import java.util.Calendar;
+import java.util.Locale;
+
+import static com.thomasred.railway.R.id.date;
+
+public class MainActivity extends FragmentActivity
         implements AdapterView.OnItemSelectedListener, View.OnClickListener,
-        RadioGroup.OnCheckedChangeListener
+        RadioGroup.OnCheckedChangeListener, DatePickerDialog.OnDateSetListener,
+        TimePickerDialog.OnTimeSetListener
 {
+
     private Spinner _s_area, _s_station;//第一組下拉選單
     private Spinner _e_area, _e_station;//第二組下拉選單
     private Calendar calendar;
@@ -47,6 +47,7 @@ public class MainActivity extends Activity
     private String trainclass ="&trainclass=2";
     private String fromtime ="&fromtime=0000";
     private String totime ="&totime=2359";
+    private int timeData = 0;
     int[] all_area = {R.array.taipei_area, R.array.taoyuan_area,
             R.array.hsinchu_area,R.array.miaoli_area,
             R.array.taichung_area, R.array.changhua_area,
@@ -85,7 +86,7 @@ public class MainActivity extends Activity
         mHour = calendar.get(Calendar.HOUR);
         mMinutes = calendar.get(Calendar.MINUTE);
 
-        _date = (Button)findViewById(R.id.date);
+        _date = (Button)findViewById(date);
         _date.setOnClickListener(this);
         _time1 = (Button)findViewById(R.id.time1);
         _time1.setOnClickListener(this);
@@ -93,16 +94,19 @@ public class MainActivity extends Activity
         _time2.setOnClickListener(this);
 
         // 設定預設的搜索日期為當天
-        nowDate = setDateFormat(mYear, mMonth, mDay);
+        //nowDate = setDateFormat(mYear, mMonth, mDay);
+        nowDate = mYear + "/" + (mMonth+1) + "/" + mDay;
         searchdate = "&searchdate=" + nowDate;
         _date.setText(nowDate);
-
 
         _send = (ImageButton)findViewById(R.id.send);
         _send.setOnClickListener(this);
 
     }
 
+    /**
+     * spinner initial
+     */
     void init_sp(int area, Spinner sp){
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 area, android.R.layout.simple_spinner_dropdown_item);
@@ -179,21 +183,51 @@ public class MainActivity extends Activity
         }
     }
 
+
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String date = year + "/" + (month+1) + "/" + dayOfMonth;
+        _date.setText(date);
+        searchdate = "&searchdate=" + date;
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String hour = String.format(Locale.CHINESE,"%02d", hourOfDay);
+        String min = String.format(Locale.CHINESE,"%02d", minute);
+        if(timeData == R.id.time1) {
+            _time1.setText(hour + ":" + min);
+            fromtime = "&fromtime=" + hour + min;
+        } else {
+            _time2.setText(hour + ":" + min);
+            totime = "&totime=" + hour + min;
+        }
+    }
+
     /**
      * Button 選擇觸發
      */
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
+
+        TimePickerFragment timePicker = new TimePickerFragment();
         switch(v.getId()){
-            case R.id.date :
-                showDialog(0);
+            case date :
+                //showDialog(0);
+                DatePickerFragment datePickerFragment = new DatePickerFragment();
+                datePickerFragment.show(getSupportFragmentManager(), "date_picker");
                 break;
             case R.id.time1 :
-                showDialog(1);
+                //showDialog(1);
+                timeData = R.id.time1;
+                timePicker.show(getSupportFragmentManager(), "time_picker");
                 break;
             case R.id.time2 :
-                showDialog(2);
+                //showDialog(2);
+                timeData = R.id.time2;
+                timePicker.show(getSupportFragmentManager(), "time_picker");
                 break;
             case R.id.send :
                 // 取得網路連線的狀態
@@ -210,6 +244,13 @@ public class MainActivity extends Activity
                 if(("&searchdate="+nowDate).compareTo(searchdate) > 0){
                     Toast.makeText(MainActivity.this,
                             "無法查詢"+nowDate+"以前的時刻表\n請重新選擇日期!"
+                            , Toast.LENGTH_LONG).show();
+                    break;
+                }
+                if(totime.substring(totime.length()-4).compareTo
+                        (fromtime.substring(fromtime.length()-4)) < 0){
+                    Toast.makeText(MainActivity.this,
+                            "請重新選擇查詢時段!"+totime.substring(totime.length()-4)
                             , Toast.LENGTH_LONG).show();
                     break;
                 }
@@ -230,65 +271,6 @@ public class MainActivity extends Activity
         }
     }
 
-
-    /**
-     * 設定Dialog
-     */
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        if(id == 0)
-            return new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker view, int year, int month, int day) {
-                    mYear = year;
-                    mMonth = month;
-                    mDay = day;
-                    _date.setText(setDateFormat(year, month, day));
-                    searchdate = "&searchdate=" + searchdate;
-                }
-            }, mYear,mMonth, mDay);
-            //datePickerDialog;
-        else if(id == 1)
-            return new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hour, int minutes) {
-                    mHour = hour;
-                    mMinutes = minutes;
-                    _time1.setText(setTimeFormat(mHour, mMinutes));
-                    fromtime = "&fromtime=" + FormChange(mHour) + FormChange(mMinutes);
-                }
-            }, mHour, mMinutes, false);
-        else if(id == 2)
-            return new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hour, int minutes) {
-                    mHour = hour;
-                    mMinutes = minutes;
-                    _time2.setText(setTimeFormat(mHour, mMinutes));
-                    totime = "&totime=" + FormChange(mHour) + FormChange(mMinutes);
-                }
-            }, mHour, mMinutes, false);
-
-        return null;
-    }
-
-    private String setDateFormat(int year, int monthOfYear, int dayOfMonth){
-        searchdate = FormChange(year) + "/"
-                + FormChange(monthOfYear + 1) + "/"
-                + FormChange(dayOfMonth);
-        return searchdate;
-    }
-
-    private String setTimeFormat(int hour, int minutes){
-        return FormChange(hour) + " : "
-                + FormChange(minutes);
-    }
-
-    private String FormChange(int a){
-        if(a < 10)
-            return "0"+String.valueOf(a);
-        return String.valueOf(a);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
