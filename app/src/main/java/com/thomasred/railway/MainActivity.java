@@ -95,7 +95,9 @@ public class MainActivity extends FragmentActivity
 
         // 設定預設的搜索日期為當天
         //nowDate = setDateFormat(mYear, mMonth, mDay);
-        nowDate = mYear + "/" + (mMonth+1) + "/" + mDay;
+        nowDate = mYear + "/" +
+                String.format(Locale.CHINESE,"%02d", (mMonth+1)) + "/" +
+                String.format(Locale.CHINESE,"%02d", mDay);
         searchdate = "&searchdate=" + nowDate;
         _date.setText(nowDate);
 
@@ -186,8 +188,10 @@ public class MainActivity extends FragmentActivity
 
 
     @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        String date = year + "/" + (month+1) + "/" + dayOfMonth;
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        String Month = String.format(Locale.CHINESE,"%02d", (month+1));
+        String Day = String.format(Locale.CHINESE,"%02d", day);
+        String date = year + "/" + Month + "/" + Day;
         _date.setText(date);
         searchdate = "&searchdate=" + date;
     }
@@ -262,6 +266,8 @@ public class MainActivity extends FragmentActivity
                 intent.setClass(MainActivity.this, Html.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("Date", searchdate);
+                /*Toast.makeText(MainActivity.this,
+                        URL, Toast.LENGTH_LONG).show();*/
                 bundle.putString("URL", URL);
                 intent.putExtras(bundle);
                 startActivity(intent);

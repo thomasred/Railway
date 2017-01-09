@@ -56,7 +56,7 @@ public class Html extends ListActivity {
         if(mdata.size()==0){
             Toast.makeText(Html.this,
                     "沒有任何車次，幫QQ", Toast.LENGTH_LONG).show();
-        }else {
+        }else{
 
             // 新增SimpleAdapter
             adapter = new MyAdapter(this, date, mdata, R.layout.style,
@@ -71,7 +71,6 @@ public class Html extends ListActivity {
             //啟用按鍵過濾功能，這兩行資料都會進行過濾
             getListView().setTextFilterEnabled(true);
         }
-
     }
 
 
