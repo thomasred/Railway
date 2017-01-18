@@ -4,15 +4,13 @@ package com.thomasred.railway;
  * Created by RED on 2016/12/27.
  */
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Bundle;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,8 +18,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.support.v4.app.NotificationCompat;
-import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MyAdapter extends BaseAdapter implements OnClickListener {
     private ArrayList<HashMap<String, Object>> mAppList;
@@ -29,8 +28,8 @@ public class MyAdapter extends BaseAdapter implements OnClickListener {
     private String[] keyString;
     private String searchdate;
     private int[] ViewID;
-    int layoutID;
-    Context _context;
+    private int layoutID;
+    private Context _context;
 
     public MyAdapter(Context context, String date, ArrayList<HashMap<String, Object>> appList,
                      int resource, String[] from, int[] to) {
@@ -141,12 +140,17 @@ public class MyAdapter extends BaseAdapter implements OnClickListener {
                 vHolder.cost.getText().toString()+"\n";
         NotificationManager mNotificationManager = (NotificationManager) _context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(_context);
+
+        boolean isAboveLollipop = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
         mBuilder.setContentTitle("記得取票!")//設置通知欄標題
                 .setContentText(searchdate + " " + data)
-                .setTicker("訂到票啦!!!! 超爽der!") //通知首次出現在通知欄，帶上升動畫效果的
                 .setWhen(System.currentTimeMillis())//通知產生的時間，會在通知信息裡顯示，一般是系統獲取到的時間
+                .setTicker("訂到票啦!!!! 超爽der!") //通知首次出現在通知欄，帶上升動畫效果的 5.0以上失效
                 .setPriority(Notification.PRIORITY_DEFAULT) //設置該通知優先級
-                .setSmallIcon(R.drawable.ic_launcher);//設置通知小ICON
+                .setLargeIcon(BitmapFactory.decodeResource(_context.getResources(),R.drawable.noti))
+                .setSmallIcon(isAboveLollipop ? R.drawable.noti : R.drawable.ic_launcher)//設置通知小ICON
+                .setDefaults(Notification.DEFAULT_ALL); //使用所有默認值，比如聲音，震動，閃屏等等
+
         Notification notification = mBuilder.build();
         mNotificationManager.notify(100, notification);
 

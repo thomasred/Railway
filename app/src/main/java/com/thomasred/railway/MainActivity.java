@@ -254,7 +254,7 @@ public class MainActivity extends FragmentActivity
                 if(totime.substring(totime.length()-4).compareTo
                         (fromtime.substring(fromtime.length()-4)) < 0){
                     Toast.makeText(MainActivity.this,
-                            "請重新選擇查詢時段!"+totime.substring(totime.length()-4)
+                            "請重新選擇查詢時段!"
                             , Toast.LENGTH_LONG).show();
                     break;
                 }
